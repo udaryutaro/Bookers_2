@@ -16,14 +16,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-header {
-	height: 70px ;
+/* header {
+	height: 50px ;
 	width: 100% ;
 	color: #fff ;
 	background-color: black;
 }
+*/
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+    color:#fff
+}
 
-.my-img {
-	width: 60px;
-	height: 60px;
+body {
+	margin-top: 100px;
+}
+
+footer{
+	float:right;
+	margin-right: 150px;
 }

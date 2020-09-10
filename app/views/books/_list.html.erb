@@ -10,11 +10,7 @@
 			<%= attachment_image_tag user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'100x100'%>
 				</div>
 			</div>
-			<table>
-				<tr>
-					<th></th>
-					<th></th>
-				</tr>
+			<table class="table table-hover">
 				<tr>
 					<td>name</td>
 					<td><%=user.name%></td>

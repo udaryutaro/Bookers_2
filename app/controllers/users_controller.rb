@@ -15,18 +15,18 @@ before_action :authenticate_user!
   def edit
   	@user = User.find(params[:id])
     if @user.id != current_user.id
-    redirect_to user_path(current_user)
-   end
+       redirect_to user_path(current_user)
+    end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    	flash[:update] = 'You have updated user successfully.'
-    redirect_to user_path(@user.id)
-	else
-		render "users/edit"
-	end
+    	 flash[:update] = 'You have updated user successfully.'
+        redirect_to user_path(@user.id)
+    else
+		   render "users/edit"
+    end
   end
 
   private
