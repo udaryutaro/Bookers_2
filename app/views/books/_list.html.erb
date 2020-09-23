@@ -19,6 +19,22 @@
 					<td>introduction</td>
 					<td><%=user.introduction%></td>
 				</tr>
+				<tr>
+					<td>follows</td>
+					<td>
+						<%= link_to (followed_path(user)) do %>
+							<%= user.following_user.count %>
+						<%end%>
+					</td>
+				</tr>
+				<tr>
+					<td>followers</td>
+					<td>
+						<%= link_to (follower_path(user)) do %>
+							<%=  user.follower_user.count %>
+						<%end%>
+					</td>
+				</tr>
 			</table>
 			<div class="row">
 				<div class="col-lg-12">
@@ -26,6 +42,21 @@
 						<%= link_to (edit_user_path(current_user)) do %>
 						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 						<%end%>
+					<%end%>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<% if user.id != current_user.id %>
+						<% if current_user.following?(user) %>
+  							<td>
+  								<%=link_to "フォローを外す",unfollow_path(user.id), class: "btn btn-primary", method: :POST%>
+  							</td>
+  						<% else %>
+  							<td class="btn btn-success">
+  								<%=link_to "フォローする", follow_path(user.id), class: "btn btn-success",method: :POST %>
+  							</td>
+  						<%end%>
 					<%end%>
 				</div>
 			</div>
